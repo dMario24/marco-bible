@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --surface-2: #f2efe8;
+  --ink: #1c1a17;
+  --ink-2: #5a564e;
+  --ink-3: #8b867b;
+  --line: #e6e1d6;
+  --accent: #8c2f39; /* 전례색 자홍 */
+  --accent-soft: #f4e6e7;
+  --viz: #2a78d6;
+  --viz-0: #ebe8e1;
+  --viz-1: #cde2fb;
+  --viz-2: #86b6ef;
+  --viz-3: #3987e5;
+  --viz-4: #1c5cab;
+  --viz-5: #0d366b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141312;
+    --surface: #1d1c1a;
+    --surface-2: #262522;
+    --ink: #f1eee8;
+    --ink-2: #c3c0b6;
+    --ink-3: #8d8a81;
+    --line: #34322e;
+    --accent: #e08a93;
+    --accent-soft: #3a2427;
+    --viz: #3987e5;
+    --viz-0: #2a2926;
+    --viz-1: #104281;
+    --viz-2: #1c5cab;
+    --viz-3: #2a78d6;
+    --viz-4: #5598e7;
+    --viz-5: #9ec5f4;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-viz: var(--viz);
+  --font-sans: var(--font-sans-kr), system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-serif: var(--font-serif-kr), "AppleMyungjo", serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* 이어 읽기 위치로 이동했을 때 잠깐 강조 */
+@keyframes verse-flash {
+  from {
+    background: var(--accent-soft);
+  }
+  to {
+    background: transparent;
+  }
+}
+.verse-flash {
+  animation: verse-flash 2.4s ease-out;
+}
